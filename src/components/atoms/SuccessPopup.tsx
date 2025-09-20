@@ -30,13 +30,13 @@ const SuccessPopup: React.FC<SuccessPopupProps> = ({ isVisible, onClose, message
             className="fixed inset-0 bg-black bg-opacity-50 z-50"
             onClick={onClose}
           />
-          
+
           {/* Popup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 50 }}
-            transition={{ type: "spring", duration: 0.5 }}
+            transition={{ type: 'spring', duration: 0.5 }}
             className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl"
           >
             <div className="text-center">
@@ -44,7 +44,7 @@ const SuccessPopup: React.FC<SuccessPopupProps> = ({ isVisible, onClose, message
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
                 className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
               >
                 <svg
@@ -71,7 +71,7 @@ const SuccessPopup: React.FC<SuccessPopupProps> = ({ isVisible, onClose, message
               >
                 Success!
               </motion.h3>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
