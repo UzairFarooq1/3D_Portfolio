@@ -15,8 +15,8 @@ const INITIAL_STATE = Object.fromEntries(
 // API endpoint for sending emails
 const API_BASE_URL =
   process.env.NODE_ENV === 'production'
-    ? 'https://www.uzairportfolio.tech/api'
-    : 'http://localhost:3001/api';
+    ? 'https://www.uzairportfolio.tech'
+    : 'http://localhost:3001';
 
 const Contact = () => {
   const formRef = useRef<React.LegacyRef<HTMLFormElement> | undefined>();

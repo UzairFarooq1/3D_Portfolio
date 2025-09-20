@@ -22,9 +22,10 @@ Set these in your Vercel dashboard (Settings → Environment Variables):
 
 ### 3. Important Notes
 - The API function is located at `api/send-email.js`
-- Vercel will automatically detect and deploy it
+- Vercel will automatically detect and deploy it to `/api/send-email`
 - No `vercel.json` configuration needed
 - Make sure to set environment variables in Vercel dashboard
+- The production URL will be: `https://www.uzairportfolio.tech/api/send-email`
 
 ### 4. Files Created
 - `api/send-email.js` - Serverless function for email sending
