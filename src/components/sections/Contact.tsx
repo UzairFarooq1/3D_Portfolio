@@ -1,23 +1,20 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 
 import { EarthCanvas } from '../canvas';
 import { SectionWrapper } from '../../hoc';
 import { slideIn } from '../../utils/motion';
 import { config } from '../../constants/config';
 import { Header } from '../atoms/Header';
-import { EMAILJS_CONFIG } from '../../config/emailjs-config';
 
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(config.contact.form).map(input => [input, ''])
 );
 
-const emailjsConfig = {
-  serviceId: EMAILJS_CONFIG.SERVICE_ID,
-  templateId: EMAILJS_CONFIG.TEMPLATE_ID,
-  accessToken: EMAILJS_CONFIG.PUBLIC_KEY,
-};
+// API endpoint for sending emails
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://your-production-domain.com' 
+  : 'http://localhost:3001';
 
 const Contact = () => {
   const formRef = useRef<React.LegacyRef<HTMLFormElement> | undefined>();
@@ -32,42 +29,42 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement> | undefined) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement> | undefined) => {
     if (e === undefined) return;
     e.preventDefault();
     setLoading(true);
 
-    // Prepare email data
-    const emailData = {
-      form_name: form.name,
-      to_name: config.html.fullName,
-      from_email: form.email,
-      to_email: EMAILJS_CONFIG.GMAIL_EMAIL,
-      message: form.message,
-      subject: 'New Contact Form Submission - Portfolio',
-      reply_to: form.email,
-    };
-
-    emailjs
-      .send(emailjsConfig.serviceId, emailjsConfig.templateId, emailData, emailjsConfig.accessToken)
-      .then(
-        () => {
-          setLoading(false);
-          alert(
-            'Thank you! I have received your message and will get back to you as soon as possible.'
-          );
-
-          setForm(INITIAL_STATE);
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/send-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        error => {
-          setLoading(false);
-          console.error('EmailJS Error:', error);
-          alert(
-            'Sorry, there was an error sending your message. Please try again or contact me directly at ' +
-              EMAILJS_CONFIG.GMAIL_EMAIL
-          );
-        }
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert(
+          'Thank you! I have received your message and will get back to you as soon as possible.'
+        );
+        setForm(INITIAL_STATE);
+      } else {
+        throw new Error(data.error || 'Failed to send email');
+      }
+    } catch (error) {
+      console.error('Email sending error:', error);
+      alert(
+        'Sorry, there was an error sending your message. Please try again or contact me directly at uzairf2580@gmail.com'
       );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
