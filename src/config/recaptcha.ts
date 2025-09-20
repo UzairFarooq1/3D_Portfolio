@@ -4,12 +4,12 @@
 export const RECAPTCHA_CONFIG = {
   // Site Key (public key) - used in frontend
   SITE_KEY: process.env.NODE_ENV === 'production' 
-    ? 'YOUR_PRODUCTION_SITE_KEY' // Replace with your actual production site key
+    ? '6LfZfs8rAAAAAEdTBfSPS_L5lOuq1RjPeum-xtBF' // Replace with your actual production site key
     : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', // Test key for development
   
   // Secret Key (private key) - used in backend
   SECRET_KEY: process.env.NODE_ENV === 'production'
-    ? 'YOUR_PRODUCTION_SECRET_KEY' // Replace with your actual production secret key
+    ? '6LfZfs8rAAAAACcKn1_fcHa_LXU82TubF-aDuDmn' // Replace with your actual production secret key
     : '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe', // Test secret for development
 };
 
