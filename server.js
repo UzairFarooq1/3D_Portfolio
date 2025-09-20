@@ -24,13 +24,40 @@ const transporter = nodemailer.createTransport({
 // Email sending endpoint
 app.post('/api/send-email', async (req, res) => {
   try {
-    const { name, email, message } = req.body;
+    const { name, email, message, captcha } = req.body;
 
     // Validate required fields
     if (!name || !email || !message) {
       return res.status(400).json({
         success: false,
         error: 'Missing required fields: name, email, and message are required',
+      });
+    }
+
+    // Verify CAPTCHA
+    if (!captcha) {
+      return res.status(400).json({
+        success: false,
+        error: 'Please complete the CAPTCHA verification',
+      });
+    }
+
+    // Verify CAPTCHA with Google
+    const captchaSecret =
+      process.env.RECAPTCHA_SECRET_KEY || '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'; // Test secret
+    const captchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${captchaSecret}&response=${captcha}`,
+    });
+
+    const captchaData = await captchaResponse.json();
+    if (!captchaData.success) {
+      return res.status(400).json({
+        success: false,
+        error: 'CAPTCHA verification failed. Please try again.',
       });
     }
 

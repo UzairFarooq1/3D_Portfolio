@@ -19,6 +19,7 @@ vercel env add GMAIL_APP_PASSWORD
 Set these in your Vercel dashboard (Settings → Environment Variables):
 - `GMAIL_USER`: uzairf2580@gmail.com
 - `GMAIL_APP_PASSWORD`: your_gmail_app_password
+- `RECAPTCHA_SECRET_KEY`: your_recaptcha_secret_key
 
 ### 3. Important Notes
 - The API function is located at `api/send-email.js`
@@ -27,10 +28,19 @@ Set these in your Vercel dashboard (Settings → Environment Variables):
 - Make sure to set environment variables in Vercel dashboard
 - The production URL will be: `https://www.uzairportfolio.tech/api/send-email`
 
-### 4. Files Created
+### 4. reCAPTCHA Setup
+1. Go to https://www.google.com/recaptcha/admin
+2. Create a new site with reCAPTCHA v2
+3. Add your domain (e.g., uzairportfolio.tech)
+4. Get your Site Key and Secret Key
+5. Update `src/config/recaptcha.ts` with your production keys
+6. Add `RECAPTCHA_SECRET_KEY` to Vercel environment variables
+
+### 5. Files Created
 - `api/send-email.js` - Serverless function for email sending
 - `api/package.json` - Dependencies for the API function
 - `src/components/atoms/SuccessPopup.tsx` - Custom success popup
+- `src/config/recaptcha.ts` - reCAPTCHA configuration
 
 ## For Netlify Deployment
 

@@ -37,7 +37,14 @@ const SuccessPopup: React.FC<SuccessPopupProps> = ({ isVisible, onClose, message
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 50 }}
             transition={{ type: 'spring', duration: 0.5 }}
-            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl"
+            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl flex items-center justify-center"
+            style={{
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              zIndex: 9999,
+            }}
           >
             <div className="text-center">
               {/* Success Icon */}

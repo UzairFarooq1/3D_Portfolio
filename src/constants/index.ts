@@ -175,7 +175,7 @@ const experiences: TExperience[] = [
 const testimonials: TTestimonial[] = [
   {
     testimonial:
-      "Uzair demonstrated exceptional technical skills and dedication during his internship. His ability to handle complex IT systems and provide innovative solutions was impressive.",
+      "I know Uzair as a calm, smart, and dedicated individual. His technical expertise and problem-solving abilities are remarkable. He approaches challenges with a thoughtful and methodical approach that consistently delivers excellent results.",
     name: "Yahya Issa Yakub",
     designation: "Head of Procurement Department",
     company: "Aga Khan University Hospital",

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import { EarthCanvas } from '../canvas';
 import { SectionWrapper } from '../../hoc';
@@ -7,6 +8,7 @@ import { slideIn } from '../../utils/motion';
 import { config } from '../../constants/config';
 import { Header } from '../atoms/Header';
 import SuccessPopup from '../atoms/SuccessPopup';
+import { RECAPTCHA_CONFIG } from '../../config/recaptcha';
 
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(config.contact.form).map(input => [input, ''])
@@ -20,10 +22,12 @@ const API_BASE_URL =
 
 const Contact = () => {
   const formRef = useRef<React.LegacyRef<HTMLFormElement> | undefined>();
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [form, setForm] = useState(INITIAL_STATE);
   const [loading, setLoading] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | undefined
@@ -33,9 +37,20 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement> | undefined) => {
     if (e === undefined) return;
     e.preventDefault();
+
+    // Check if CAPTCHA is completed
+    if (!captchaValue) {
+      alert('Please complete the CAPTCHA verification.');
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -48,6 +63,7 @@ const Contact = () => {
           name: form.name,
           email: form.email,
           message: form.message,
+          captcha: captchaValue,
         }),
       });
 
@@ -59,6 +75,10 @@ const Contact = () => {
         );
         setShowSuccessPopup(true);
         setForm(INITIAL_STATE);
+        setCaptchaValue(null);
+        if (recaptchaRef.current) {
+          recaptchaRef.current.reset();
+        }
       } else {
         throw new Error(data.error || 'Failed to send email');
       }
@@ -112,6 +132,17 @@ const Contact = () => {
                 </label>
               );
             })}
+
+            {/* reCAPTCHA */}
+            <div className="flex justify-center">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={RECAPTCHA_CONFIG.SITE_KEY}
+                onChange={handleCaptchaChange}
+                theme="dark"
+              />
+            </div>
+
             <button
               type="submit"
               className="bg-tertiary shadow-primary w-fit rounded-xl px-8 py-3 font-bold text-white shadow-md outline-none"
