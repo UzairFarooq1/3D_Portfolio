@@ -17,8 +17,8 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.GMAIL_USER || 'uzairf2580@gmail.com',
-    pass: process.env.GMAIL_APP_PASSWORD || 'atnqvxlgvtpdgrxn'
-  }
+    pass: process.env.GMAIL_APP_PASSWORD || 'atnqvxlgvtpdgrxn',
+  },
 });
 
 // Email sending endpoint
@@ -28,9 +28,9 @@ app.post('/api/send-email', async (req, res) => {
 
     // Validate required fields
     if (!name || !email || !message) {
-      return res.status(400).json({ 
-        success: false, 
-        error: 'Missing required fields: name, email, and message are required' 
+      return res.status(400).json({
+        success: false,
+        error: 'Missing required fields: name, email, and message are required',
       });
     }
 
@@ -57,22 +57,21 @@ app.post('/api/send-email', async (req, res) => {
         
         This message was sent from your portfolio contact form.
       `,
-      replyTo: email
+      replyTo: email,
     };
 
     // Send email
     await transporter.sendMail(mailOptions);
-    
-    res.json({ 
-      success: true, 
-      message: 'Email sent successfully' 
-    });
 
+    res.json({
+      success: true,
+      message: 'Email sent successfully',
+    });
   } catch (error) {
     console.error('Email sending error:', error);
-    res.status(500).json({ 
-      success: false, 
-      error: 'Failed to send email. Please try again later.' 
+    res.status(500).json({
+      success: false,
+      error: 'Failed to send email. Please try again later.',
     });
   }
 });
