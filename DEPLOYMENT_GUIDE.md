@@ -16,13 +16,19 @@ vercel env add GMAIL_APP_PASSWORD
 ```
 
 ### 2. Environment Variables
-Set these in your Vercel dashboard:
+Set these in your Vercel dashboard (Settings → Environment Variables):
 - `GMAIL_USER`: uzairf2580@gmail.com
 - `GMAIL_APP_PASSWORD`: your_gmail_app_password
 
-### 3. Files Created
+### 3. Important Notes
+- The API function is located at `api/send-email.js`
+- Vercel will automatically detect and deploy it
+- No `vercel.json` configuration needed
+- Make sure to set environment variables in Vercel dashboard
+
+### 4. Files Created
 - `api/send-email.js` - Serverless function for email sending
-- `vercel.json` - Vercel configuration
+- `api/package.json` - Dependencies for the API function
 - `src/components/atoms/SuccessPopup.tsx` - Custom success popup
 
 ## For Netlify Deployment
