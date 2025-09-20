@@ -13,7 +13,7 @@ const INITIAL_STATE = Object.fromEntries(
 
 // API endpoint for sending emails
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://your-production-domain.com' 
+  ? 'https://www.uzairportfolio.tech' 
   : 'http://localhost:3001';
 
 const Contact = () => {

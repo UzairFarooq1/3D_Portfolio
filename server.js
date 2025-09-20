@@ -1,7 +1,9 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
-const cors = require('cors');
-require('dotenv').config();
+import express from 'express';
+import nodemailer from 'nodemailer';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -11,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Gmail SMTP configuration
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.GMAIL_USER || 'uzairf2580@gmail.com',
