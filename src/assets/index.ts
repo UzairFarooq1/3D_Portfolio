@@ -19,16 +19,26 @@ import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
+import nextjs from "./tech/nextjs.png";
 import threejs from "./tech/threejs.svg";
+// Using JavaScript icon as substitute for Python
+// import python from "./tech/python.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import vanguard from "./company/vanguard.svg";
+import freelance from "./company/freelance.svg";
+import brainstorm from "./company/brainstorm.svg";
+import school from "./company/school.svg";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import halalEventbrite from "./Halal_eventrbrite.jpeg";
+import attendanceSystem from "./attendance-system.svg";
+import shoemania from "./shoemania.svg";
 
 export {
   logo,
@@ -51,12 +61,21 @@ export {
   redux,
   tailwind,
   typescript,
+  nextjs,
   threejs,
+  // python,
   meta,
   shopify,
   starbucks,
   tesla,
+  vanguard,
+  freelance,
+  brainstorm,
+  school,
   carrent,
   jobit,
   tripguide,
+  halalEventbrite,
+  attendanceSystem,
+  shoemania,
 };

@@ -35,18 +35,19 @@ type TConfig = {
     experience: TSection;
     feedbacks: TSection;
     works: Required<TSection>;
+    certifications: Required<TSection>;
   };
 };
 
 export const config: TConfig = {
   html: {
-    title: "John Doe — 3D Portfolio",
-    fullName: "John Doe",
-    email: "johndoe@mail.com",
+    title: "Uzair Farooq — 3D Portfolio",
+    fullName: "Uzair Farooq",
+    email: "uzairf2580@gmail.com",
   },
   hero: {
-    name: "John Doe",
-    p: ["I develop 3D visuals, user", "interfaces and web applications"],
+    name: "Uzair Farooq",
+    p: ["I develop web applications, mobile apps", "and create innovative IT solutions"],
   },
   contact: {
     p: "Get in touch",
@@ -67,11 +68,7 @@ export const config: TConfig = {
     about: {
       p: "Introduction",
       h2: "Overview.",
-      content: `I'm a skilled software developer with experience in TypeScript and
-      JavaScript, and expertise in frameworks like React, Node.js, and
-      Three.js. I'm a quick learner and collaborate closely with clients to
-      create efficient, scalable, and user-friendly solutions that solve
-      real-world problems. Let's work together to bring your ideas to life!`,
+      content: `I'm a passionate Business Information Technology graduate from Strathmore University with First-Class Honors and 3x Dean's list recognition. My educational journey includes specialized training in Business Intelligence and international exposure through Tallinn University's virtual program in Applications Programming and Interaction Design Methods. I specialize in web development using ReactJS, NextJS, and mobile app development with Kotlin and Flutter. Currently serving as Head of IT at Vanguard Group of Companies and working as a freelance developer, I create innovative solutions that solve real-world problems. Let's work together to bring your ideas to life!`,
     },
     experience: {
       p: "What I have done so far",
@@ -89,6 +86,11 @@ export const config: TConfig = {
     links to code repositories and live demos in it. It reflects my
     ability to solve complex problems, work with different technologies,
     and manage projects effectively.`,
+    },
+    certifications: {
+      p: "My credentials",
+      h2: "Certifications.",
+      content: `Professional certifications and courses that demonstrate my commitment to continuous learning and expertise in various technologies and methodologies.`,
     },
   },
 };

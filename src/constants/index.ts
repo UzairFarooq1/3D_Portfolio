@@ -17,21 +17,18 @@ import {
   html,
   css,
   reactjs,
-  redux,
-  tailwind,
+  nextjs,
   nodejs,
   mongodb,
   git,
   figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
-  threejs,
+  vanguard,
+  freelance,
+  brainstorm,
+  school,
+  halalEventbrite,
+  attendanceSystem,
+  shoemania,
 } from "../assets";
 
 export const navLinks: TNavLink[] = [
@@ -42,6 +39,10 @@ export const navLinks: TNavLink[] = [
   {
     id: "work",
     title: "Work",
+  },
+  {
+    id: "certifications",
+    title: "Certifications",
   },
   {
     id: "contact",
@@ -55,15 +56,15 @@ const services: TService[] = [
     icon: web,
   },
   {
-    title: "React Native Developer",
+    title: "Mobile App Developer",
     icon: mobile,
   },
   {
-    title: "Backend Developer",
+    title: "IT Support Specialist",
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "Freelance Developer",
     icon: creator,
   },
 ];
@@ -90,12 +91,8 @@ const technologies: TTechnology[] = [
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
+    name: "NextJS",
+    icon: nextjs,
   },
   {
     name: "Node JS",
@@ -106,8 +103,8 @@ const technologies: TTechnology[] = [
     icon: mongodb,
   },
   {
-    name: "Three JS",
-    icon: threejs,
+    name: "Flutter",
+    icon: mobile,
   },
   {
     name: "git",
@@ -117,63 +114,60 @@ const technologies: TTechnology[] = [
     name: "figma",
     icon: figma,
   },
-  {
-    name: "docker",
-    icon: docker,
-  },
 ];
 
 const experiences: TExperience[] = [
   {
-    title: "React.js Developer",
-    companyName: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    title: "Admin Assistant & Head of IT",
+    companyName: "Nairobi X-ray Supplies / Vanguard Group",
+    icon: vanguard,
+    iconBg: "#0047A7",
+    date: "Nov 2024 - Current",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Gained hands-on experience in SAP for business operations and handled sales activities.",
+      "Provided IT support for computers and managed office printers and networking infrastructure.",
+      "Administered firewalls to ensure network security and maintained Google Workspace Emails.",
+      "Designed and implemented an IT support system and an E-job card system.",
+      "Managed and updated websites for companies under the Vanguard Group.",
     ],
   },
   {
-    title: "React Native Developer",
-    companyName: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    title: "Freelance Web/Mobile Developer",
+    companyName: "Self-Employed",
+    icon: freelance,
+    iconBg: "#28A745",
+    date: "May 2024 - Current",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developing Halal EventBrite Website - Event Hosting Platform.",
+      "Created Mobile Company Attendance System for efficient workforce management.",
+      "Built Ecommerce Website for Shoes (ShoeMania) with full payment integration.",
+      "Working with ReactJS, NextJS, Kotlin, and Flutter technologies.",
     ],
   },
   {
-    title: "Web Developer",
-    companyName: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    title: "Assistant Sales Manager Intern",
+    companyName: "Brainstorm Solutions Limited",
+    icon: brainstorm,
+    iconBg: "#6F42C1",
+    date: "Feb 2023 - April 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Handled customer & supplier communication and managed inventory systems.",
+      "Created and tracked invoices using QuickBooks for accurate financial records.",
+      "Installed and updated operating systems for improved system performance.",
+      "Gained experience in business operations and customer relationship management.",
     ],
   },
   {
-    title: "Full stack Developer",
-    companyName: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    title: "Assistant Teacher (Volunteer)",
+    companyName: "Highridge Primary School",
+    icon: school,
+    iconBg: "#FD7E14",
+    date: "Jan 2021 - March 2021",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Taught Mathematics and Science to primary school students.",
+      "Assisted in resolving technical issues and provided educational support.",
+      "Developed communication and teaching skills through volunteer work.",
+      "Contributed to community development through educational initiatives.",
     ],
   },
 ];
@@ -181,93 +175,96 @@ const experiences: TExperience[] = [
 const testimonials: TTestimonial[] = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+      "Uzair demonstrated exceptional technical skills and dedication during his internship. His ability to handle complex IT systems and provide innovative solutions was impressive.",
+    name: "Yahya Issa Yakub",
+    designation: "Head of Procurement Department",
+    company: "Aga Khan University Hospital",
+    image: "",
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+      "Uzair is an outstanding student with excellent academic performance and strong technical capabilities. His projects showcase both creativity and technical expertise.",
+    name: "Dr Allan Omondi",
+    designation: "Lecturer and Research Coordinator",
+    company: "Strathmore University",
+    image: "",
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+      "Uzair's work as Head of IT has significantly improved our systems efficiency. His technical solutions and proactive approach to problem-solving are commendable.",
+    name: "Management Team",
+    designation: "Vanguard Group of Companies",
+    company: "Vanguard Group",
+    image: "",
   },
 ];
 
 const projects: TProject[] = [
   {
-    name: "Car Rent",
+    name: "Halal EventBrite",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "A comprehensive event hosting platform specifically designed for Halal events, allowing users to create, discover, and manage Islamic events with features like event registration, payment processing, and community building.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
+      },
+      {
+        name: "nextjs",
+        color: "green-text-gradient",
       },
       {
         name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    sourceCodeLink: "https://github.com/",
+    image: halalEventbrite,
+    sourceCodeLink: "https://github.com/UzairFarooq1/Halal-Eventbrite",
+    projectLink: "https://halal-eventbrite.vercel.app",
   },
   {
-    name: "Job IT",
+    name: "Company Attendance System",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Mobile application for efficient workforce management that allows employees to clock in/out, track working hours, and provides real-time attendance monitoring for HR departments.",
+    tags: [
+      {
+        name: "flutter",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "kotlin",
+        color: "green-text-gradient",
+      },
+      {
+        name: "firebase",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: attendanceSystem,
+    sourceCodeLink: "https://github.com/UzairFarooq1/Employee-Attendance-System-Flutter",
+    projectLink: "https://play.google.com/store/apps/details?id=com.attendance.app",
+  },
+  {
+    name: "ShoeMania Ecommerce",
+    description:
+      "A full-featured ecommerce website for shoe sales with complete payment integration, inventory management, user authentication, and responsive design for optimal shopping experience.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "nodejs",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "stripe",
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
-    sourceCodeLink: "https://github.com/",
-  },
-  {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: tripguide,
-    sourceCodeLink: "https://github.com/",
+    image: shoemania,
+    sourceCodeLink: "https://github.com/UzairFarooq1/shoe-mania-ecom",
+    projectLink: "https://shoe-mania-ecom.vercel.app",
   },
 ];
 

@@ -9,6 +9,7 @@ import {
   Navbar,
   Tech,
   Works,
+  Certifications,
   StarsCanvas,
 } from "./components";
 import { useEffect } from "react";
@@ -32,6 +33,7 @@ const App = () => {
         <Experience />
         <Tech />
         <Works />
+        <Certifications />
         <Feedbacks />
         <div className="relative z-0">
           <Contact />
