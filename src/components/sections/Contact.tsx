@@ -6,6 +6,7 @@ import { SectionWrapper } from '../../hoc';
 import { slideIn } from '../../utils/motion';
 import { config } from '../../constants/config';
 import { Header } from '../atoms/Header';
+import SuccessPopup from '../atoms/SuccessPopup';
 
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(config.contact.form).map(input => [input, ''])
@@ -13,13 +14,15 @@ const INITIAL_STATE = Object.fromEntries(
 
 // API endpoint for sending emails
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://www.uzairportfolio.tech' 
-  : 'http://localhost:3001';
+  ? 'https://www.uzairportfolio.tech/api' 
+  : 'http://localhost:3001/api';
 
 const Contact = () => {
   const formRef = useRef<React.LegacyRef<HTMLFormElement> | undefined>();
   const [form, setForm] = useState(INITIAL_STATE);
   const [loading, setLoading] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | undefined
@@ -50,9 +53,8 @@ const Contact = () => {
       const data = await response.json();
 
       if (data.success) {
-        alert(
-          'Thank you! I have received your message and will get back to you as soon as possible.'
-        );
+        setSuccessMessage('Thank you! I have received your message and will get back to you as soon as possible.');
+        setShowSuccessPopup(true);
         setForm(INITIAL_STATE);
       } else {
         throw new Error(data.error || 'Failed to send email');
@@ -68,7 +70,13 @@ const Contact = () => {
   };
 
   return (
-    <div className={`flex flex-col-reverse gap-10 overflow-hidden xl:mt-12 xl:flex-row`}>
+    <>
+      <SuccessPopup
+        isVisible={showSuccessPopup}
+        onClose={() => setShowSuccessPopup(false)}
+        message={successMessage}
+      />
+      <div className={`flex flex-col-reverse gap-10 overflow-hidden xl:mt-12 xl:flex-row`}>
       <motion.div
         variants={slideIn('left', 'tween', 0.2, 1)}
         className="bg-black-100 flex-[0.75] rounded-2xl p-8"
@@ -165,6 +173,7 @@ const Contact = () => {
         </div>
       </motion.div>
     </div>
+    </>
   );
 };
 
