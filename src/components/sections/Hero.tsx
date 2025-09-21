@@ -105,9 +105,9 @@ const Hero = () => {
 
       <ComputersCanvas />
 
-      {/* Mobile Profile Picture - Different Design */}
+      {/* Mobile Profile Picture and Text - Different Design */}
       {isMobile && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.3 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -115,7 +115,7 @@ const Hero = () => {
             className="relative"
           >
             {/* Mobile Profile Picture */}
-            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#915EFF] shadow-2xl mx-auto">
+            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#915EFF] shadow-2xl mx-auto mb-4">
               <img
                 src="/profile-pic.svg"
                 alt="Uzair Farooq"
@@ -125,6 +125,16 @@ const Hero = () => {
                     'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiBmaWxsPSIjMzMzIi8+CjxjaXJjbGUgY3g9IjY0IiBjeT0iNDUiIHI9IjE5IiBmaWxsPSIjOTE1RUZGIi8+CjxwYXRoIGQ9Ik0zMiA5MCBRMzIgNzcgNjQgNzcgUTk2IDc3IDk2IDkwIEw5NiAxMDIgTDMyIDEwMiBaIiBmaWxsPSIjOTE1RUZGIi8+Cjwvc3ZnPgo=';
                 }}
               />
+            </div>
+
+            {/* Mobile Text Content */}
+            <div className="px-4">
+              <h1 className="text-white text-2xl font-black mb-2">
+                Hi, I'm <span className="text-[#915EFF]">{config.hero.name}</span>
+              </h1>
+              <p className="text-[#dfd9ff] text-sm font-medium leading-relaxed">
+                {config.hero.p[0]} {config.hero.p[1]}
+              </p>
             </div>
 
             {/* Mobile Floating Elements */}
