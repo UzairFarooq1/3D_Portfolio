@@ -107,15 +107,15 @@ const Hero = () => {
 
       {/* Mobile Profile Picture and Text - Different Design */}
       {isMobile && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.3 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
+            className="relative w-full max-w-sm"
           >
             {/* Mobile Profile Picture */}
-            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#915EFF] shadow-2xl mx-auto mb-4">
+            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#915EFF] shadow-2xl mx-auto mb-6 relative z-20">
               <img
                 src="/profile-pic.svg"
                 alt="Uzair Farooq"
@@ -127,14 +127,19 @@ const Hero = () => {
               />
             </div>
 
-            {/* Mobile Text Content */}
-            <div className="px-4">
-              <h1 className="text-white text-2xl font-black mb-2">
-                Hi, I'm <span className="text-[#915EFF]">{config.hero.name}</span>
-              </h1>
-              <p className="text-[#dfd9ff] text-sm font-medium leading-relaxed">
-                {config.hero.p[0]} {config.hero.p[1]}
-              </p>
+            {/* Mobile Text Content with Background */}
+            <div className="relative z-20 text-center">
+              {/* Text Background for better visibility */}
+              <div className="absolute inset-0 bg-black/60 backdrop-blur-sm rounded-2xl -m-4"></div>
+
+              <div className="relative px-6 py-4">
+                <h1 className="text-white text-3xl font-black mb-3 drop-shadow-lg">
+                  Hi, I'm <span className="text-[#915EFF] drop-shadow-lg">{config.hero.name}</span>
+                </h1>
+                <p className="text-[#dfd9ff] text-base font-medium leading-relaxed drop-shadow-md">
+                  {config.hero.p[0]} {config.hero.p[1]}
+                </p>
+              </div>
             </div>
 
             {/* Mobile Floating Elements */}
@@ -148,7 +153,7 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: 'reverse',
               }}
-              className="absolute -top-1 -right-1 w-5 h-5 bg-[#915EFF] rounded-full flex items-center justify-center"
+              className="absolute -top-2 -right-2 w-6 h-6 bg-[#915EFF] rounded-full flex items-center justify-center shadow-lg z-30"
             >
               <span className="text-white text-xs">💻</span>
             </motion.div>
@@ -163,7 +168,7 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: 'reverse',
               }}
-              className="absolute -bottom-1 -left-1 w-5 h-5 bg-[#804dee] rounded-full flex items-center justify-center"
+              className="absolute -bottom-2 -left-2 w-6 h-6 bg-[#804dee] rounded-full flex items-center justify-center shadow-lg z-30"
             >
               <span className="text-white text-xs">🚀</span>
             </motion.div>
