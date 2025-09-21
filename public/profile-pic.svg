@@ -1,0 +1,6 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#333"/>
+  <circle cx="100" cy="70" r="30" fill="#915EFF"/>
+  <path d="M50 140 Q50 120 100 120 Q150 120 150 140 L150 160 L50 160 Z" fill="#915EFF"/>
+  <text x="100" y="190" text-anchor="middle" fill="#915EFF" font-family="Arial" font-size="12">Uzair Farooq</text>
+</svg>
