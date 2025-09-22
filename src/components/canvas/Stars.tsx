@@ -1,8 +1,8 @@
-import { useState, useRef, Suspense } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial, Preload } from "@react-three/drei";
-import { random } from "maath";
-import { TypedArray } from "three";
+import { useState, useRef, Suspense } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Points, PointMaterial, Preload } from '@react-three/drei';
+import { random } from 'maath';
+import { TypedArray } from 'three';
 
 const Stars = (props: any) => {
   const ref = useRef<THREE.Points>();
@@ -34,7 +34,7 @@ const Stars = (props: any) => {
 
 const StarsCanvas = () => {
   return (
-    <div className="absolute inset-0 z-[-1] h-auto w-full">
+    <div className="fixed inset-0 -z-10 h-full w-full">
       <Canvas camera={{ position: [0, 0, 1] }}>
         <Suspense fallback={null}>
           <Stars />

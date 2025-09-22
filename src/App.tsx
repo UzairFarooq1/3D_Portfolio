@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
 
 import {
   About,
@@ -11,9 +11,9 @@ import {
   Works,
   Certifications,
   StarsCanvas,
-} from "./components";
-import { useEffect } from "react";
-import { config } from "./constants/config";
+} from './components';
+import { useEffect } from 'react';
+import { config } from './constants/config';
 
 const App = () => {
   useEffect(() => {
@@ -25,7 +25,10 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="bg-primary relative z-0">
-        <div className="bg-hero-pattern bg-cover bg-center bg-no-repeat">
+        {/* Global stars background */}
+        <StarsCanvas />
+
+        <div>
           <Navbar />
           <Hero />
         </div>
@@ -37,7 +40,6 @@ const App = () => {
         <Feedbacks />
         <div className="relative z-0">
           <Contact />
-          <StarsCanvas />
         </div>
       </div>
     </BrowserRouter>
