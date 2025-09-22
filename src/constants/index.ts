@@ -118,7 +118,7 @@ const technologies: TTechnology[] = [
 
 const experiences: TExperience[] = [
   {
-    title: "Admin Assistant & Head of IT",
+    title: "Admin Assistant & IT Admin",
     companyName: "Nairobi X-ray Supplies / Vanguard Group",
     icon: vanguard,
     iconBg: "#0047A7",
