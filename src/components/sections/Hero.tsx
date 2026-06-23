@@ -117,7 +117,7 @@ const Hero = () => {
             {/* Mobile Profile Picture */}
             <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#915EFF] shadow-2xl mx-auto mb-6 relative z-20">
               <img
-                src="/profile-pic.svg"
+                src="../assets/dp.png"
                 alt="Uzair Farooq"
                 className="w-full h-full object-cover"
                 onError={e => {
