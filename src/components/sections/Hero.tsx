@@ -58,7 +58,7 @@ const Hero = () => {
             {/* Profile Picture Container */}
             <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#915EFF] shadow-2xl">
               <img
-                src="/profile-pic.svg"
+                src="../assets/dp.png"
                 alt="Uzair Farooq"
                 className="w-full h-full object-cover"
                 onError={e => {
