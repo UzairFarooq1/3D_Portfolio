@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { styles } from '../../constants/styles';
 import { ComputersCanvas } from '../canvas';
 import { config } from '../../constants/config';
+import dp from '../../assets/dp.png';
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -58,7 +59,7 @@ const Hero = () => {
             {/* Profile Picture Container */}
             <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#915EFF] shadow-2xl">
               <img
-                src="../assets/dp.png"
+                src={dp}
                 alt="Uzair Farooq"
                 className="w-full h-full object-cover"
                 onError={e => {
@@ -117,7 +118,7 @@ const Hero = () => {
             {/* Mobile Profile Picture */}
             <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#915EFF] shadow-2xl mx-auto mb-6 relative z-20">
               <img
-                src="../assets/dp.png"
+                src={dp}
                 alt="Uzair Farooq"
                 className="w-full h-full object-cover"
                 onError={e => {
